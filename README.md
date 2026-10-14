@@ -135,16 +135,36 @@ Each addon item follows the [Stremio Addon Protocol v3](https://github.com/Strem
    ```
    Open `http://localhost:5173` in your browser.
 
-4. **Build for production**:
+4. **Build for production (Web)**:
    ```bash
    npm run build
    ```
    This compiles type checks and outputs optimized static assets to the `dist/` directory.
 
-5. **Preview production build**:
-   ```bash
-   npm run preview
-   ```
+5. **Build Desktop Installers (Windows `.exe` & macOS `.dmg`)**:
+   - **Windows (.exe setup file)**:
+     ```bash
+     npm run electron:build:win
+     ```
+     Outputs a standalone installer: `release/Stremio Addon Manager-Setup-1.0.0.exe`.
+   - **macOS (.dmg disk image)**:
+     ```bash
+     npm run electron:build:mac
+     ```
+     Outputs an Apple disk image: `release/Stremio Addon Manager-1.0.0.dmg`.
+   - **Automated GitHub Releases**:
+     The repository includes [`.github/workflows/build-desktop.yml`](.github/workflows/build-desktop.yml). Whenever you create a Git release tag (e.g. `git tag v1.0.0 && git push --tags`) or trigger the workflow manually in GitHub Actions, GitHub automatically builds both the `.exe` and `.dmg` installers and attaches them to the release for direct download!
+
+---
+
+## 🌐 Web App vs. Desktop App
+
+| Format | Compatibility | Installation | Updates |
+| :--- | :--- | :--- | :--- |
+| **Web App** (Recommended) | Windows, Mac, Linux, iOS, Android | None (runs in any modern browser) | Instant / Automatic |
+| **Progressive Web App (PWA)** | Windows, Mac, ChromeOS, Mobile | 1-Click "Install" in Chrome/Edge/Safari | Instant / Automatic |
+| **Windows `.exe`** | Windows 10 / 11 | Single-click setup installer | Downloadable update |
+| **macOS `.dmg`** | macOS (Apple Silicon & Intel) | Drag to Applications folder | Downloadable update |
 
 ---
 
