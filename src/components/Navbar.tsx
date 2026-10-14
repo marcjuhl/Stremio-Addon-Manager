@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* GitHub Link */}
           <a
-            href="https://github.com/topics/stremio-addon"
+            href="https://github.com/marcjuhl/Stremio-Addon-Manager"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl border border-stremio-border bg-stremio-card/60 hover:bg-stremio-card text-gray-400 hover:text-white transition-all"
